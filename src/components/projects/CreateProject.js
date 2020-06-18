@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import { createProject } from '../store/actions/projectActions';
+import { useDispatch } from 'react-redux';
 
 export default function CreateProject() {
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
+  const dispatch = useDispatch()
 
   const onSubmit = e => {
     e.preventDefault()
-    console.log({ title, content });
-
+    dispatch(createProject({ title, content }))
   }
   return (
     <div className="container">
@@ -15,7 +17,7 @@ export default function CreateProject() {
         <h5 className="grey-text text-darken-3">Create Project</h5>
         <div className="input-field">
           <label htmlFor="title">Title</label>
-          <input type="email" id="title" onChange={e => setTitle(e.target.value)} />
+          <input type="text" id="title" onChange={e => setTitle(e.target.value)} />
         </div>
         <div className="input-field">
           <label htmlFor="content">Content</label>

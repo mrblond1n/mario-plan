@@ -1,8 +1,13 @@
 import React from 'react'
 import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
+import { useSelector } from 'react-redux'
 
-export default function Dashboard() {
+const Dashboard = () => {
+  const projects = useSelector(state => state.project.projects)
+  console.log(projects);
+
+
   return (
     <div className="dashboard container">
       <div className="row">
@@ -16,3 +21,6 @@ export default function Dashboard() {
     </div>
   )
 }
+
+
+export default Dashboard;

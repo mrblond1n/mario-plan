@@ -3,12 +3,18 @@ import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './components/store/reducers/rootReducer';
 
-const store = createStore(rootReducer);
+const middleware = [];
+
+const store = createStore(rootReducer, composeWithDevTools(
+  applyMiddleware(...middleware),
+  // other store enhancers if any
+));
 
 let app = <Provider store={store}><App /></Provider>;
 let elemApp = document.getElementById('root')

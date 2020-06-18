@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { HOME } from '../constants/routers';
+import { SIGNIN, SIGNUP } from '../constants/routers';
 
 export default function SignedOutLinks() {
   return (
     <ul className="right">
       <li>
-        <NavLink to={HOME}>Sign Up</NavLink>
+        <NavLink to={SIGNUP}>Sign Up</NavLink>
       </li>
       <li>
-        <NavLink to={HOME}>Log In</NavLink>
+        <NavLink to={SIGNIN}>Log In</NavLink>
       </li>
     </ul>
   )

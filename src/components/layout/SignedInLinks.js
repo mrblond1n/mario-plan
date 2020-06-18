@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { HOME } from '../constants/routers';
+import { HOME, CREATE_PROJECT } from '../constants/routers';
 
 export default function SignedInLinks() {
   return (
     <ul className="right">
       <li>
-        <NavLink to={HOME}>New Project</NavLink>
+        <NavLink to={CREATE_PROJECT}>New Project</NavLink>
       </li>
       <li>
         <NavLink to={HOME}>Log Out</NavLink>

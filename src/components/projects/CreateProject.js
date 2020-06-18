@@ -11,7 +11,7 @@ export default function CreateProject() {
   }
   return (
     <div className="container">
-      <form className="while" onSubmit={e => onSubmit(e)}>
+      <form className="white" onSubmit={e => onSubmit(e)}>
         <h5 className="grey-text text-darken-3">Create Project</h5>
         <div className="input-field">
           <label htmlFor="title">Title</label>

@@ -16,7 +16,7 @@ export default function SignUp() {
   }
   return (
     <div className="container">
-      <form className="while" onSubmit={e => onSubmit(e)}>
+      <form className="white" onSubmit={e => onSubmit(e)}>
         <h5 className="grey-text text-darken-3">Sign Up</h5>
         <div className="input-field">
           <label htmlFor="firstName">First Name</label>

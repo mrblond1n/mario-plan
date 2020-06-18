@@ -8,6 +8,8 @@ export default function ProjectList() {
       <ProjectSummary />
       <ProjectSummary />
       <ProjectSummary />
+      <ProjectSummary />
+      <ProjectSummary />
 
     </div>
   )

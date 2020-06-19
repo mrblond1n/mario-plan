@@ -3,17 +3,17 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBCtcMGAk4EaAjHVDJBNptPw3Ufk5aTfEY",
-  authDomain: "marioplan-project-with-react.firebaseapp.com",
-  databaseURL: "https://marioplan-project-with-react.firebaseio.com",
-  projectId: "marioplan-project-with-react",
-  storageBucket: "marioplan-project-with-react.appspot.com",
-  messagingSenderId: "355512342324",
-  appId: "1:355512342324:web:ea60ea6af2d3fcb7c1f761",
-  measurementId: "G-EQY2QMKNGD"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.firestore().settings({ timestampsInSnapshots: true })
+firebase.firestore();
 
 export default firebase

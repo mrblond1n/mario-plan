@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './components/store/reducers/rootReducer'
 import { Provider } from "react-redux";
@@ -21,7 +22,7 @@ const middleware = [thunk.withExtraArgument({ getFirebase, getFirestore })];
 
 const store = createStore(
   rootReducer,
-  compose(
+  composeWithDevTools(
     applyMiddleware(...middleware),
     reduxFirestore(fbConfig)
   )

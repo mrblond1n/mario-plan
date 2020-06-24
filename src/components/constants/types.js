@@ -2,3 +2,5 @@ export const ADD_PROJECT = 'ADD_PROJECT';
 export const CREATE_ERROR = 'CREATE_ERROR';
 export const LOGIN_SUCCESS = 'LOGGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const SIGNOUT_SUCCESS = 'SIGNOUT_SUCCESS';
+export const SIGNOUT_FAILED = 'SIGNOUT_FAILED';

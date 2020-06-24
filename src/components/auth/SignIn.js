@@ -17,6 +17,8 @@ export default function SignIn() {
     e.preventDefault()
     dispatch(signIn({ email, password }))
   }
+
+  const disabled = !email || !password
   return (
     <div className="container">
       <form className="white" onSubmit={e => onSubmit(e)}>
@@ -29,7 +31,7 @@ export default function SignIn() {
           <label htmlFor="password">Password</label>
           <input type="password" autoComplete='current-password' id="password" onChange={e => setPassword(e.target.value)} />
         </div>
-        <button type="submit" className="btn pink lighten-1 z-depth-0">Login</button>
+        <button disabled={disabled} type="submit" className="btn pink lighten-1 z-depth-0">Login</button>
         <div className="red-text center">
           {authError}
         </div>

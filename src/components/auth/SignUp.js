@@ -19,11 +19,11 @@ export default function SignUp() {
   if (auth.uid) return <Redirect to={HOME} />
   const onSubmit = e => {
     e.preventDefault()
-    if (confirmPassword !== password) console.log('Не совпадают пароли!');
-
     dispatch(signUp({ email, password, firstName, lastName }));
-
   }
+
+  const disabled = !email || !password || !confirmPassword || !firstName || !lastName || password !== confirmPassword;
+
   return (
     <div className="container">
       <form className="white" onSubmit={e => onSubmit(e)}>
@@ -45,10 +45,10 @@ export default function SignUp() {
           <input type="password" autoComplete="new-password" id="password" onChange={e => setPassword(e.target.value)} />
         </div>
         <div className="input-field">
-          <label htmlFor="confirmPassword">Password</label>
+          <label htmlFor="confirmPassword">Confirm password</label>
           <input type="password" autoComplete="new-password" id="confirmPassword" onChange={e => setConfirmPassword(e.target.value)} />
         </div>
-        <button type="submit" className="btn pink lighten-1 z-depth-0">SignUp</button>
+        <button disabled={disabled} type="submit" className="btn pink lighten-1 z-depth-0">SignUp</button>
         <div className="red-text center">
           {authError}
         </div>

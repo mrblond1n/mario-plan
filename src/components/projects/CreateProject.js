@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { createProject } from '../store/actions/projectActions';
 import { useDispatch } from 'react-redux';
+import { HOME } from "../constants/routers";
 
-export default function CreateProject() {
+export default function CreateProject(props) {
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
   const dispatch = useDispatch()
@@ -10,6 +11,7 @@ export default function CreateProject() {
   const onSubmit = e => {
     e.preventDefault()
     dispatch(createProject({ title, content }))
+    props.history.push(HOME)
   }
   return (
     <div className="container">

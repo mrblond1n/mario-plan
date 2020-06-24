@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { signIn } from '../store/actions/authActions';
 
 export default function SignIn() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const dispatch = useDispatch();
+  const authError = useSelector(state => state.auth.authError)
 
   const onSubmit = e => {
     e.preventDefault()
-    console.log({ email, password });
-
+    dispatch(signIn({ email, password }))
   }
   return (
     <div className="container">
@@ -22,6 +25,9 @@ export default function SignIn() {
           <input type="password" autoComplete='current-password' id="password" onChange={e => setPassword(e.target.value)} />
         </div>
         <button type="submit" className="btn pink lighten-1 z-depth-0">Login</button>
+        <div className="red-text center">
+          {authError}
+        </div>
       </form>
     </div>
   )

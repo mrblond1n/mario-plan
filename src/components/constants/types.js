@@ -1,2 +1,4 @@
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const CREATE_ERROR = 'CREATE_ERROR';
+export const LOGIN_SUCCESS = 'LOGGIN_SUCCESS';
+export const LOGIN_FAILED = 'LOGIN_FAILED';

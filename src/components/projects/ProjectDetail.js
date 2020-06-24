@@ -7,7 +7,7 @@ const ProjectDetail = props => {
   const id = props.match.params.id;
   const projects = useSelector(state => state.firestore.data.projects)
   const project = projects ? projects[id] : null;
-  const date = new Date(project?.createAt.seconds * 1000).toLocaleDateString()
+  const date = new Date(project?.createAt?.seconds * 1000).toLocaleDateString()
 
   if (project) {
     return (<div className="container section project-details">

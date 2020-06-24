@@ -7,6 +7,7 @@ import ProjectDetail from './components/projects/ProjectDetail';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateProject from './components/projects/CreateProject';
+import ProtectRouter from './components/auth/ProtectRouter'
 
 function App() {
   return (
@@ -14,11 +15,11 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route exact path={HOME} component={Dashboard} />
-          <Route path={PROJECT_DETAIL} component={ProjectDetail} />
+          <ProtectRouter exact path={HOME} component={Dashboard} />
+          <ProtectRouter path={PROJECT_DETAIL} component={ProjectDetail} />
           <Route path={SIGNIN} component={SignIn} />
           <Route path={SIGNUP} component={SignUp} />
-          <Route path={CREATE_PROJECT} component={CreateProject} />
+          <ProtectRouter path={CREATE_PROJECT} component={CreateProject} />
         </Switch>
       </div>
     </BrowserRouter>

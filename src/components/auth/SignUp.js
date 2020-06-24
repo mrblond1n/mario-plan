@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import { HOME } from '../constants/routers';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 
 export default function SignUp() {
   const [email, setEmail] = useState();
@@ -6,7 +10,9 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
+  const auth = useSelector(state => state.firebase.auth)
 
+  if (auth.uid) return <Redirect to={HOME} />
   const onSubmit = e => {
     e.preventDefault()
     if (confirmPassword !== password) console.log('Не совпадают пароли!');

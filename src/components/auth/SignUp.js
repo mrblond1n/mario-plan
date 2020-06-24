@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { HOME } from '../constants/routers';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { signUp } from '../store/actions/authActions';
 
 
 export default function SignUp() {
@@ -11,13 +12,16 @@ export default function SignUp() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const auth = useSelector(state => state.firebase.auth)
+  const authError = useSelector(state => state.auth.authError);
+
+  const dispatch = useDispatch()
 
   if (auth.uid) return <Redirect to={HOME} />
   const onSubmit = e => {
     e.preventDefault()
     if (confirmPassword !== password) console.log('Не совпадают пароли!');
 
-    console.log({ email, password, firstName, lastName });
+    dispatch(signUp({ email, password, firstName, lastName }));
 
   }
   return (
@@ -45,6 +49,9 @@ export default function SignUp() {
           <input type="password" autoComplete="new-password" id="confirmPassword" onChange={e => setConfirmPassword(e.target.value)} />
         </div>
         <button type="submit" className="btn pink lighten-1 z-depth-0">SignUp</button>
+        <div className="red-text center">
+          {authError}
+        </div>
       </form>
     </div>
   )

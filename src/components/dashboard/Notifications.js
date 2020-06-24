@@ -10,7 +10,7 @@ export default function Notifications({ notifications }) {
           <ul className="notifications">
             {notifications && notifications.map(notify =>
               <li key={notify.id}>
-                <span className="pink-text">{notify.user} </span>
+                <span className="pink-text" style={{ marginRight: '.5rem' }}>{notify.user}</span>
                 <span>{notify.content}</span>
                 <div className="grey-text note-date">
                   {moment(notify.date).fromNow()}

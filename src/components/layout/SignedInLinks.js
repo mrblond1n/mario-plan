@@ -4,7 +4,7 @@ import { HOME, CREATE_PROJECT } from '../constants/routers';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../store/actions/authActions';
 
-export default function SignedInLinks() {
+export default function SignedInLinks({ profile }) {
   const dispatch = useDispatch();
   return (
     <ul className="right">
@@ -15,7 +15,7 @@ export default function SignedInLinks() {
         <NavLink to={HOME}>Log Out</NavLink>
       </li>
       <li>
-        <NavLink to={HOME} className="btn btn-floating pink lighten-1">NN</NavLink>
+        <NavLink to={HOME} className="btn btn-floating pink lighten-1">{profile.initials}</NavLink>
       </li>
     </ul>
   )

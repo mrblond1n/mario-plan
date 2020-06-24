@@ -6,7 +6,9 @@ import { compose } from 'redux'
 const ProjectDetail = props => {
   const id = props.match.params.id;
   const projects = useSelector(state => state.firestore.data.projects)
-  const project = projects ? projects[id] : null
+  const project = projects ? projects[id] : null;
+  const date = new Date(project?.createAt.seconds * 1000).toLocaleDateString()
+
   if (project) {
     return (<div className="container section project-details">
       <div className="card z-depth-0">
@@ -16,7 +18,7 @@ const ProjectDetail = props => {
         </div>
         <div className="card-action grey lighten-4 grey-text">
           <div>{project.authorFirstName} {project.authorLastName}</div>
-          <div>2rd september, 2am</div>
+          <div>{date}</div>
         </div>
       </div>
     </div>)
